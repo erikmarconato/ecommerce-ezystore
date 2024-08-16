@@ -1,0 +1,42 @@
+.header {
+    background: linear-gradient(to right, #00bcd4, #4caf50);
+    width: 100vw;
+    height: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.logo {
+    width: 170px;
+    height: 45px;
+    object-fit: cover;
+}
+
+.inputText {
+    width: 250px;
+    height: 30px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    padding: 0 10px;
+    font-size: 16px;
+}
+
+.buttonLogin {
+    height: 35px;
+    padding: 0 15px;
+    border-radius: 5px;
+    background-color: #ff6347;
+    color: white;
+    border: none;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.buttonLogin:hover {
+    background-color: #ff7f61;
+}

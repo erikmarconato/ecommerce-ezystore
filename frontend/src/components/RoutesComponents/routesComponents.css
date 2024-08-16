@@ -1,0 +1,24 @@
+.divRoutesComponents {
+    background: linear-gradient(to right, #00bcd4, #4caf50);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 50px;
+    overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.options {
+    margin: 0 15px;
+    text-decoration: none;
+    color: #ff6347;
+    font-size: 16px;
+    font-weight: bold;
+    border-bottom: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.options:hover {
+    border-bottom: 2px solid #ff6347;
+}

@@ -1,0 +1,49 @@
+.sectionCards {
+    background-color: #f9f9f9;
+    width: 250px;
+    height: 350px;
+    margin: 15px;
+    align-items: center;
+    text-align: center;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out, border-color 0.2s ease-in-out;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.sectionCards:hover {
+    transform: scale(1.05);
+    border-color: #ff6347;
+}
+
+.divCards {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+}
+
+.divCards h1 {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 10px;
+    flex-grow: 1;
+}
+
+.sectionCards img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 15px;
+    flex-shrink: 0;
+}
+
+.divCards h2 {
+    font-size: 1.2rem;
+    color: #ff6347;
+    flex-shrink: 0;
+    margin-bottom: 40px;
+}
