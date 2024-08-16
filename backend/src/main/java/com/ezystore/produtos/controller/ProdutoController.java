@@ -1,13 +1,14 @@
 package com.ezystore.produtos.controller;
 
 import com.ezystore.produtos.dto.ProdutoDto;
-import com.ezystore.service.ProdutoService;
+import com.ezystore.produtos.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
 @RequestMapping("/produtos")
+@CrossOrigin
 public class ProdutoController {
 
     private ProdutoService produtoService;
@@ -35,6 +36,6 @@ public class ProdutoController {
     public void deletarProduto (@PathVariable Long id){
         produtoService.deletarProduto(id);
     }
-    
+
 
 }

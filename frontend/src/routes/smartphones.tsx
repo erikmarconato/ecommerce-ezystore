@@ -1,22 +1,37 @@
 import Card from "../components/CardsProducts/card";
-import data from "../Data/products.json";
 import Header from "../components/Header/header";
 import RoutesComponents from "../components/RoutesComponents/routesComponents";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 function Smartphones() {
-  const products = [...data.products.smartphones];
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      try {
+        const resposta = await axios.get("http://localhost:8080/produtos");
+        const produtosFiltrados = resposta.data.filter((product) => product.tipoProduto === "smartphone");
+        setData(produtosFiltrados);
+      } catch (error) {
+        console.error("Erro ao buscar os produtos: ", error);
+      }
+    };
+    fetchData();
+  }, []);
+  
   return (
     <div>
-      <Header />
-      <RoutesComponents />
-      <div className="centralizarCard">
-        {products.map((product) => (
-          <Card
-            key={product.id}
-            name={product.name}
-            price={product.price}
-            image={product.image}
-          />
+    <Header/>
+    <RoutesComponents/>
+    <div className="centralizarCard">
+        {data.map((product) => (
+          <Card 
+            key={product.id} 
+            name={product.nome} 
+            price={product.preco} 
+            image={product.imagemUrl}
+         />
         ))}
       </div>
     </div>

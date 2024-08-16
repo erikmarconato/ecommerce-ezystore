@@ -24,11 +24,19 @@ public class ProdutoEntity {
     @Column(name = "preco")
     private double preco;
 
+    @Column (name = "imagemURL")
+    private String imagemUrl;
+
+    @Column (name = "tipoProduto", nullable = false)
+    private String tipoProduto;
+
 
     public ProdutoEntity(ProdutoDto produto) {
         this.id = produto.id();
         this.nome = produto.nome();
         this.preco = produto.preco();
+        this.imagemUrl = produto.imagemUrl();
+        this.tipoProduto = produto.tipoProduto();
     }
 
     public ProdutoEntity(Long id) {
