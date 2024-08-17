@@ -6,7 +6,7 @@ function CrudProdutos() {
       <h1>Painel de Controle</h1>
       <div className="crudButtons">
         <button className="add-product-btn">Adicionar Produto</button>
-        <button className="add-product-btn">Editar Produto</button>
+        <button className="add-product-btn" onClick={() => {console.log("TESTE")}}>Editar Produto</button>
         <button className="add-product-btn">Excluir Produto</button>
       </div>
     </div>

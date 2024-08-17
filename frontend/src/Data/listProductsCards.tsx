@@ -5,7 +5,11 @@ import axios from "axios";
 
 // Foi estilizado pelo css global "index.css" na pasta "src" apenas para centralizar os cards na div
 
-function ListProductsCards({}) {
+type AcessProps = {
+  controlAcess: boolean;
+}
+
+function ListProductsCards({controlAcess}: AcessProps) {
   const [data, setData] = useState([]);
 
   useEffect(() => {
@@ -25,9 +29,11 @@ function ListProductsCards({}) {
       {data.map((product) => (
         <Card
           key={product.id}
+          id={product.id}
           name={product.nome}
           price={product.preco}
           image={product.imagemUrl}
+          acesso={controlAcess}
         />
       ))}
     </div>

@@ -8,7 +8,7 @@ function Home() {
     <div>
       <Header />
       <RoutesComponents />
-      <ListProductsCards />
+      <ListProductsCards controlAcess={false}/>
     </div>
   );
 }
