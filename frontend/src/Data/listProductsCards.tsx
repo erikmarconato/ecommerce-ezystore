@@ -5,7 +5,7 @@ import axios from "axios";
 
 // Foi estilizado pelo css global "index.css" na pasta "src" apenas para centralizar os cards na div
 
-function ListProductsCards() {
+function ListProductsCards({}) {
   const [data, setData] = useState([]);
 
   useEffect(() => {

@@ -8,9 +8,10 @@ function Header() {
       <Link to={"/"}>
         <img className="logo" src={imgLogo} alt="Logotipo do MarketPlace" />
       </Link>
-      <input type="text" className="inputText" />
+      {/*<input type="text" className="inputText" />     Barra de pesquisa para ser implementada futuramente*/}
       <button className="buttonLogin">Login</button>
     </header>
   );
 }
 export default Header;
+ 

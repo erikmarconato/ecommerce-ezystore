@@ -7,7 +7,7 @@ import Teclados from "./routes/teclados";
 import Mouses from "./routes/mouses";
 import Smartphones from "./routes/smartphones";
 import NotFound from "./routes/notfound";
-import CustomizarProdutos from "./routes/customizarprodutos";
+import ControlPanel from "./routes/controlpanel";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route path="/mouses" element={<Mouses />}></Route>
         <Route path="/smartphones" element={<Smartphones />}></Route>
         <Route path="*" element={<NotFound />}></Route>
-        <Route path="/customizarprodutos" element={<CustomizarProdutos />}></Route>
+        <Route path="/paineldecontrole" element={<ControlPanel />}></Route>
       </Routes>
     </BrowserRouter>
   </React.StrictMode>
