@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import Header from "../../components/Header/header";
 import "../EditProduct/editproductRoute.css";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
 
 function EditProductRoute() {
   const [id, setId] = useState("");
@@ -12,8 +11,6 @@ function EditProductRoute() {
   const [typeProduct, setTypeProduct] = useState("");
   const [idValidation, setIdValidation] = useState("");
   const [formError, setFormError] = useState("");
-
-  const navigate = useNavigate();
 
   useEffect(() => {
     if (!id) {
@@ -87,8 +84,7 @@ function EditProductRoute() {
           tipoProduto: typeProduct,
         });
         alert("Produto atualizado com sucesso!");
-        setFormError("");
-        navigate("/paineldecontrole");
+        setFormError(""); 
       } catch (err) {
         console.error("Erro ao atualizar o produto", err);
         alert("Erro ao atualizar o produto");
@@ -108,32 +104,32 @@ function EditProductRoute() {
         <form onSubmit={submit}>
           <div>
             <label>
-              ID: <input type="text" onChange={changeId} value={id} required/>
+              ID: <input type="text" onChange={changeId} value={id} />
             </label>
           </div>
 
           <div>
             <label>
-              Nome: <input type="text" onChange={changeName} value={name} required/>
+              Nome: <input type="text" onChange={changeName} value={name} />
             </label>
           </div>
 
           <div>
             <label>
-              Preço: <input type="text" onChange={changePrice} value={price} required/>
+              Preço: <input type="text" onChange={changePrice} value={price} />
             </label>
           </div>
 
           <div>
             <label>
-              Imagem URL: <input type="text" onChange={changeUrl} value={url} required/>
+              Imagem URL: <input type="text" onChange={changeUrl} value={url} />
             </label>
           </div>
 
           <div>
             <label>
               Tipo de Produto:
-              <select value={typeProduct} onChange={changeTypeProduct} required>
+              <select value={typeProduct} onChange={changeTypeProduct}>
                 <option value="">Selecione</option>
                 <option value="smartphone">Smartphone</option>
                 <option value="mouse">Mouse</option>

@@ -1,7 +1,6 @@
 package com.ezystore.produtos.controller;
 
 import com.ezystore.produtos.dto.ProdutoDto;
-import com.ezystore.produtos.entity.ProdutoEntity;
 import com.ezystore.produtos.service.ProdutoService;
 import org.springframework.web.bind.annotation.*;
 
