@@ -16,7 +16,7 @@ function ProtectedRoute({ requiredRole }: ProtectedRouteProps) {
     return <Navigate to="/login" />;
   }
 
-  if (role !== "1") {
+  if (role !== "Admin") {
     return <Navigate to="/nao-permitido" />;
   }
 

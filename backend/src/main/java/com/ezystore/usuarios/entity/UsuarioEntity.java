@@ -38,7 +38,7 @@ public class UsuarioEntity implements UserDetails {
 
     @Enumerated(EnumType.STRING)
     @Column(name = "role")
-    private Role role;
+    private Role role = Role.valueOf("User");
 
 
     public UsuarioEntity(UsuarioDto usuario) {

@@ -26,7 +26,6 @@ function Login() {
         const decoded = jwtDecode(token);  
         localStorage.setItem("role", decoded.role);
         localStorage.setItem("jwt", token);
-        console.log(localStorage);
         navigate("/");
       }
     } catch (error) {

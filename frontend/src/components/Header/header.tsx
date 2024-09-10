@@ -17,6 +17,7 @@ function Header() {
   const logout = () => {
     localStorage.removeItem("role");
     localStorage.removeItem("jwt");
+    navigate("/");
     window.location.reload(); 
   };
 
@@ -27,13 +28,13 @@ function Header() {
       return <button className="buttonLogin" onClick={() => navigate("/login")}>Login</button>;
     }
 
-    if (role === "0" || role === "1") {
+    if (role === "User" || role === "Admin") {
       return (
         <div className="user-menu">
           <FaUser className="user-icon" onClick={toggleMenu} />
           {showMenu && (
             <div className="dropdown-menu">
-              {role === "1" && <button onClick={() => navigate("/paineldecontrole")}>Painel de Controle</button>}
+              {role === "Admin" && <button onClick={() => navigate("/paineldecontrole")}>Painel de Controle</button>}
               <button onClick={logout}>Sair</button>
             </div>
           )}
@@ -41,11 +42,11 @@ function Header() {
       );
     }
   };
-
   return (
     <header className="header">
       <img className="logo" src={imgLogo} alt="Logotipo do MarketPlace" onClick={() => navigate("/")} />
       {loginButton()}
+      
     </header>
   );
 }

@@ -28,25 +28,25 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
 
         <Route
           path="/paineldecontrole"
-          element={<ProtectedRoute requiredRole={"1"} />}>
+          element={<ProtectedRoute requiredRole={"Admin"} />}>
           <Route index element={<ControlPanel />} />
         </Route>
 
         <Route
           path="/adicionarproduto"
-          element={<ProtectedRoute requiredRole={"1"} />}>
+          element={<ProtectedRoute requiredRole={"Admin"} />}>
           <Route index element={<AddProduct />} />
         </Route>
 
         <Route
           path="/editarproduto"
-          element={<ProtectedRoute requiredRole={"1"} />}>
+          element={<ProtectedRoute requiredRole={"Admin"} />}>
           <Route index element={<EditProductRoute />} />
         </Route>
 
         <Route
           path="/deletarproduto"
-          element={<ProtectedRoute requiredRole={"1"} />}>
+          element={<ProtectedRoute requiredRole={"Admin"} />}>
           <Route index element={<DeleteProduct />} />
         </Route>
 
