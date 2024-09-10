@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Header from "../../components/Header/header";
 import "../EditProduct/editproductRoute.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function EditProductRoute() {
   const [id, setId] = useState("");
@@ -11,6 +12,7 @@ function EditProductRoute() {
   const [typeProduct, setTypeProduct] = useState("");
   const [idValidation, setIdValidation] = useState("");
   const [formError, setFormError] = useState("");
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (!id) {
@@ -21,12 +23,21 @@ function EditProductRoute() {
       setIdValidation("");
       setFormError("");
     }
+
     const fetchProduto = async () => {
       if (id) {
+        const token = localStorage.getItem("jwt");
+        if (!token) {
+          alert("Token de autenticação não encontrado. Faça login novamente.");
+          return;
+        }
+
         try {
-          const response = await axios.get(
-            `http://localhost:8080/produtos/${id}`
-          );
+          const response = await axios.get(`http://localhost:8080/produtos/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
           const product = response.data;
           setName(product.nome);
           setPrice(product.preco);
@@ -76,15 +87,31 @@ function EditProductRoute() {
         return;
       }
 
+      const token = localStorage.getItem("jwt");
+
+      if (!token) {
+        alert("Token de autenticação não encontrado. Faça login novamente.");
+        return;
+      }
+
       try {
-        await axios.put(`http://localhost:8080/produtos/${id}`, {
-          nome: name,
-          preco: price,
-          imagemUrl: url,
-          tipoProduto: typeProduct,
-        });
+        await axios.put(
+          `http://localhost:8080/produtos/${id}`,
+          {
+            nome: name,
+            preco: price,
+            imagemUrl: url,
+            tipoProduto: typeProduct,
+          },
+          {
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          }
+        );
         alert("Produto atualizado com sucesso!");
-        setFormError(""); 
+        setFormError("");
+        navigate("/paineldecontrole");
       } catch (err) {
         console.error("Erro ao atualizar o produto", err);
         alert("Erro ao atualizar o produto");
@@ -138,7 +165,7 @@ function EditProductRoute() {
             </label>
           </div>
           <p className="idValidation">{idValidation}</p>
-          {formError && <p className="formError">{formError}</p>} 
+          {formError && <p className="formError">{formError}</p>}
 
           <button type="submit">Salvar</button>
         </form>

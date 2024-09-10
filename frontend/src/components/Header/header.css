@@ -11,18 +11,11 @@
 }
 
 .logo {
-    width: 170px;
-    height: 45px;
+    width: 140px;
+    height: 50px;
     object-fit: cover;
-}
-
-.inputText {
-    width: 250px;
-    height: 30px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    padding: 0 10px;
-    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .buttonLogin {
@@ -39,4 +32,41 @@
 
 .buttonLogin:hover {
     background-color: #ff7f61;
+}
+
+.user-menu {
+    position: relative;
+    display: inline-block;
+}
+
+.user-icon {
+    cursor: pointer;
+    font-size: 24px;
+    color: #333;
+}
+
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    z-index: 1;
+}
+
+.dropdown-menu button {
+    display: block;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: white;
+    border: none;
+    text-align: left;
+    cursor: pointer;
+    font-size: 14px;
+}
+
+.dropdown-menu button:hover {
+    background-color: #f0f0f0;
 }

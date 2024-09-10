@@ -15,18 +15,35 @@ function DeleteProduct() {
 
   const deleteProduct = async () => {
     if (id) {
-      const checkId = await axios.get(`http://localhost:8080/produtos/${id}`);
-      if (checkId.data != null) {
-        try {
-          await axios.delete(`http://localhost:8080/produtos/${id}`);
+      const token = localStorage.getItem("jwt"); 
+
+      
+      if (!token) {
+        alert("Token de autenticação não encontrado. Faça login novamente.");
+        return;
+      }
+
+      try {
+        const checkId = await axios.get(`http://localhost:8080/produtos/${id}`, {
+          headers: {
+            Authorization: `Bearer ${token}`, 
+          },
+        });
+
+        if (checkId.data != null) {
+          await axios.delete(`http://localhost:8080/produtos/${id}`, {
+            headers: {
+              Authorization: `Bearer ${token}`, 
+            },
+          });
           alert("Produto deletado com sucesso!");
           navigate("/paineldecontrole");
-        } catch (err) {
-          console.log(err);
-          alert("Erro ao deletar produto");
+        } else {
+          alert("Id não existe no banco de dados!");
         }
-      } else {
-        alert("Id não existe no banco de dados!");
+      } catch (err) {
+        console.log(err);
+        alert("Erro ao deletar produto");
       }
     }
   };

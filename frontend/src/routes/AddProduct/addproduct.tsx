@@ -2,28 +2,45 @@ import { useState } from "react";
 import Header from "../../components/Header/header";
 import "./addproduct.css";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function AddProduct() {
   const [name, setName] = useState("");
   const [price, setPrice] = useState("");
   const [url, setUrl] = useState("");
   const [typeProduct, setTypeProduct] = useState("");
+  const navigate = useNavigate();
 
   const fetchProduto = async () => {
-    
-      try {
-        await axios.post("http://localhost:8080/produtos", {
+    const token = localStorage.getItem("jwt"); 
+
+    if (!token) {
+      alert("Token de autenticação não encontrado. Faça login novamente.");
+      return;
+    }
+
+    try {
+      await axios.post(
+        "http://localhost:8080/produtos",
+        {
           nome: name,
           preco: price,
           imagemUrl: url,
           tipoProduto: typeProduct,
-        });
-        alert("Produto cadastrado com sucesso");
-      } catch (err) {
-        console.log(err);
-      }
-    } 
-
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      alert("Produto cadastrado com sucesso");
+      navigate("/paineldecontrole");
+    } catch (err) {
+      console.log(err);
+      alert("Erro ao cadastrar produto");
+    }
+  };
 
   const changeName = (event: any) => {
     setName(event.target.value);
@@ -43,8 +60,10 @@ function AddProduct() {
 
   const submit = async (event: any) => {
     event.preventDefault();
-    fetchProduto();
+    await fetchProduto();
+    
   };
+
   return (
     <>
       <Header />
@@ -54,19 +73,19 @@ function AddProduct() {
         <form onSubmit={submit}>
           <div>
             <label>
-              Nome: <input type="text" onChange={changeName} value={name} required/>
+              Nome: <input type="text" onChange={changeName} value={name} required />
             </label>
           </div>
 
           <div>
             <label>
-              Preço: <input type="text" onChange={changePrice} value={price} required/>
+              Preço: <input type="text" onChange={changePrice} value={price} required />
             </label>
           </div>
 
           <div>
             <label>
-              Imagem URL: <input type="text" onChange={changeUrl} value={url} required/>
+              Imagem URL: <input type="text" onChange={changeUrl} value={url} required />
             </label>
           </div>
 
