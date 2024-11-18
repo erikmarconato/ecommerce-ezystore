@@ -3,7 +3,7 @@
 
 ### Visão Geral
 
-Este projeto é uma aplicação de e-commerce full-stack, onde usuários comuns podem visualizar e filtrar produtos por categorias. Usuários com privilégios de administrador têm acesso a um painel de controle protegido, onde podem adicionar, editar ou excluir produtos.
+Este projeto foi desenvolvido como uma aplicação de estudo com o objetivo de aprender e praticar conceitos de desenvolvimento full-stack, onde usuários comuns podem visualizar e filtrar produtos por categorias. Usuários com privilégios de administrador têm acesso a um painel de controle protegido, onde podem adicionar, editar ou excluir produtos.
 
 ![1](https://github.com/user-attachments/assets/142af6f1-7f7c-41c2-a5c2-c5df0a9ca18f)
 ![2](https://github.com/user-attachments/assets/03d6f12f-957b-4cde-ad0a-6b413815a357)
